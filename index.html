@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="title" content="Celebrity What's Up!">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="copyright" content="WTF">
+  <meta name="og:title" content="Celebrity What's Up!">
+  <meta name="og:type" content="website">
+  <meta name="og:url" content="http://www.ttc.wtf">
+  <meta name="og:image" content="http://ia.media-imdb.com/rock.jpg">
+  <meta name="og:site_name" content="WTF">
+  <meta name="og:description" content="">
+  <meta name="twitter:title" content="Celebrity What's Up!">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:card" content="http://www.ttc.wtf">
+  <meta name="twitter:image:src" content="http://www.ttc.wtf/meta_twitter.jpg">
+  <meta name="twitter:site" content="IMDb">
+  <meta name="hostname" content="www.ttc.wtf">
+  <meta name="expected-hostname" content="www.ttc.wtf">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Scrolling Text</title>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background: #000000;
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+
+div {
+    display: block;
+}
+
+section {
+    display: block;
+}
+
+p {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+font[Attributes Style] {
+    font-size: small;
+}
+
+.backgrounds {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.backgrounds__pattern, .backgrounds__photo, .backgrounds__stripe-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.backgrounds__photo {
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.backgrounds__pattern {
+    background-image: url("./assets/bg.jpg");
+    background-repeat: repeat;
+}
+
+.backgrounds__stripe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 54.6875rem;
+}
+
+.backgrounds__stripe {
+    background-color: rgba(255, 255, 0, 0.25);
+	width: 50%;
+    height: 100%;
+}
+
+.page-header {
+    position: relative;
+    padding: 0 0.625rem;
+    width: 100%;
+    max-width: 54.6875rem;
+    margin-top: 0.75rem;
+    margin-right: 0;
+    margin-bottom: 2.25rem;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+    color: #ff6e01;
+}
+
+.page-header span {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-color: #000000;
+    color: #000000;
+}
+
+.sidebar-content-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.main-nav {
+    padding: 0.625rem;
+}
+
+.sidebar {
+    display: none;
+}
+
+.sidebar button {
+    background: #000000;
+    border: 1px solid #b2b2b2;
+    padding: 0.3125rem 0.625rem;
+    cursor: pointer;
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(100% - 1em - 2.5rem);
+    left: 100%;
+    z-index: 100;
+    margin-top: calc(-1*(1em - 1.875rem));
+    margin-right: 0.625rem;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    white-space: nowrap;
+}
+
+.economy-footer {
+    background: #ffffff;
+    color: #000;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-nav ul li {
+    line-height: 1.2;
+}
+
+.wiki-disclaimer {
+    background: #ff6e01;
+    color: #000;
+    margin-top: 2.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+.wiki-disclaimer__inner {
+	width: 100%;
+	max-width: 54.6875rem;
+	margin-left: 0;
+	margin-right: auto;
+	padding: 0.625rem;
+	font-size: 0.8125rem;
+	line-height: 1.3846;
+}
+
+.economy-footer__inner {
+    width: 100%;
+    max-width: 54.6875rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.economy-footer__economy-links, .economy-footer__metadata {
+    flex: 1 1 50%;
+}
+
+.economy-footer__button-container:first-of-type {
+    margin-top: 0;
+}
+
+.economy-footer__button-container {
+    margin: 0.3125rem 0;
+}
+
+.economy-footer__metadata p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.economy-footer__button {
+    display: inline-block;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+
+.colspan-4 {
+    width: calc(100% - 0.625rem);
+    margin-left: 0.625rem;
+    margin-bottom: 0.625rem;
+    flex: 0 0 auto;
+}
+
+.title-module--prominence-1.colspan-1, .title-module--prominence-1.colspan-2, .title-module--prominence-1.colspan-3, .title-module--prominence-1.colspan-4 {
+    width: 100%;
+}
+
+.title-module .page-title--prominence-1, .title-module .page-title--prominence-2, .title-module .page-title--prominence-3, .title-module .page-title--prominence-4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.page-title--prominence-1 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    font-size: 3.125rem;
+    line-height: 1;
+}
+
+.title-module .page-title--prominence-1 span {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(to bottom, transparent 0.19em, #fff003 0.19em, #fff003 0.91em, transparent 0.91em);
+    text-transform: uppercase;
+    position: relative;
+    top: -0.125em;
+}
+
+.title-module span {
+    color: #000;
+}
+
+.scrolling-text-module.colspan-2 {
+    background-image: linear-gradient(to right, white, #fff003);
+    background-size: 100% 100%;
+}
+
+.scrolling-text-module {
+    padding: 0.625rem;
+    background: #e3ffff;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+
+.colspan-2 {
+    width: calc(50% - 0.625rem);
+    margin-left: 0.625rem;
+    margin-bottom: 0.625rem;
+    flex: 0 0 auto;
+}
+
+.scrolling-text-module__inner {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.editor-details--offset-inside-margin {
+    right: -0.625rem;
+    bottom: -0.625rem;
+}
+
+.editor-details {
+    position: relative;
+    cursor: pointer;
+    color: #000;
+    font-size: 0.6875rem;
+    line-height: 1.2727;
+    text-align: right;
+    font-family: "Arial", "Helvetica", sans-serif;
+}
+
+.visually-hidden {
+    pointer-events: none;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.editor-details__thumbnail {
+    position: relative;
+    z-index: 1;
+}
+
+.editor-details__thumbnail, .editor-details__content {
+    display: inline-block;
+    padding: 1em 1em;
+    background: #000000;
+    text-align: left;
+}
+
+.editor-details__content {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transform: scale(0);
+    z-index: 3;
+    transform-origin: bottom right;
+    transition: opacity linear 125ms, transform cubic-bezier(0, 0.75, 0.58, 1) 300ms;
+}
+
+.editor-details__thumbnail, .editor-details__content {
+    display: inline-block;
+    padding: 1em 1em;
+    background: #000000;
+    text-align: left;
+}
+
+.editor-details__content p {
+    margin-bottom: 0;
+}
+
+#magic_modules {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 0 0;
+    padding-right: 0.625rem;
+    z-index: 4;
+    position: relative;
+}
+
+.accordion-module h1, .accordion-module h2, .accordion-module h3, .accordion-module h4, .accordion-module h5, .accordion-module h6 {
+    line-height: 1.1;
+}
+
+.accordion-module__title {
+    margin: 0 0;
+    text-transform: uppercase;
+}
+
+.page-title--prominence-4 {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+    font-weight: bold;
+}
+
+.accordion-module.colspan-1, .accordion-module.colspan-2 {
+    background-image: linear-gradient(to right, white, #e8d931);
+    background-size: 100% 100%;
+}
+
+.accordion-module {
+    background: #e3ffff;
+    border: 2px solid #000;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+
+.accordion-module__summary {
+    padding: 1.5em 2.5rem 1.5em 0.625rem;
+    position: relative;
+    list-style: none;
+}
+
+.accordion-module__summary:after {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 0.625rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: "Arial", "Helvetica", sans-serif;
+}
+
+.accordion-module__content {
+    padding: 0 0.625rem 0.625rem;
+}
+
+.jump-links-module {
+    font-family: "Arial", "Helvetica", sans-serif;
+    color: #fff;
+    font-size: 1.3125rem;
+    line-height: 1.1905;
+}
+
+.jump-links-module__title {
+    margin: 0 0 0.75rem 0.25em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+    font-weight: bold;
+}
+
+.jump-links-module__title span {
+    box-shadow: 0px -0.05em 0px #000000, 0.25em -0.05em 0px #000000, 0.25em 0px 0px #000000, 0.25em 0.05em 0px #000000, 0px 0.05em 0px #000000, -0.25em 0.05em 0px #000000, -0.25em 0px 0px #000000, -0.25em -0.05em 0px #000000;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-color: #000000;
+}
+
+ul.list--blank.jump-links-module__links {
+    padding-left: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+ul.list--blank {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.jump-links-module__links a, .jump-links-module__links a:link, .jump-links-module__links a:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.jump-links-module__links a {
+    padding-bottom: 0.25em;
+    box-shadow: 0px -0.05em 0px #000000, 0.25em -0.05em 0px #000000, 0.25em 0px 0px #000000, 0.25em 0.05em 0px #000000, 0px 0.05em 0px #000000, -0.25em 0.05em 0px #000000, -0.25em 0px 0px #000000, -0.25em -0.05em 0px #000000;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-color: #000000;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.jump-links-module__links li+li {
+    margin-top: 0.5em;
+}
+
+.divider-module {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.divider-module__horizontal-rule {
+    width: 60%;
+    height: 1.5rem;
+    margin: 0 auto;
+    background: #000;
+}
+
+.page-title--prominence-2 {
+    font-size: 2.1875rem;
+    line-height: 1.1;
+}
+
+.title-module .page-title--prominence-2 span {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(to bottom, transparent 0.19em, #aaa 0.19em, #aaa 0.91em, transparent 0.91em);
+    text-transform: uppercase;
+    position: relative;
+    top: -0.175em;
+}
+
+.title-module span {
+    color: #000;
+}
+
+.announcement-module {
+    background-image: linear-gradient(to right, white, #09ff09);
+    background-size: 100% 100%;
+    padding: 0.625rem;
+    font-size: 1.3125rem;
+    line-height: 1.1905;
+}
+
+.editor-details--offset-inside-margin {
+    right: -0.625rem;
+    bottom: -0.625rem;
+}
+
+.editor-details {
+    position: relative;
+    cursor: pointer;
+    color: #000;
+    font-size: 0.6875rem;
+    line-height: 1.2727;
+    text-align: right;
+    font-family: "Arial", "Helvetica", sans-serif;
+}
+
+.footer {
+	position: relative;
+    width: 100%;
+    max-width: 54.6875rem;
+    padding: 6.75rem 0.625rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+    color: #000000;
+    word-spacing: "";
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.footer a, .footer a:link, .footer a:visited {
+    color: inherit;
+}
+
+.footer a, .footer span {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-color: #ffffff;
+}
+.mobile-footer .economy-footer {
+    background: #ffffff;
+    color: #000;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+}
+.mobile-footer .economy-footer__inner {
+    width: 100%;
+    max-width: 54.6875rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.mobile-footer .economy-footer__economy-links, .mobile-footer .economy-footer__metadata {
+    flex: 1 1 50%;
+}
+.mobile-footer .economy-footer__button-container:first-of-type {
+    margin-top: 0;
+}
+.mobile-footer .economy-footer__button-container {
+    margin: 0.3125rem 0;
+}
+.mobile-footer .economy-footer__button {
+    display: inline-block;
+    background: #000;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+.mobile-footer .economy-footer__metadata p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.red-bar{
+    position: absolute;
+    width: 10px;
+    height: 1000000000px;
+    left: 75%;
+    top: 309px;
+    background: #ff0000;
+    z-index: -1;
+}
+
+@media screen and (min-width: 54.6875rem){
+	.mobile-footer{
+		display: none;
+	}
+	body {
+		font-size: 0.8125rem;
+		line-height: 1.3846;
+	}
+	
+	.backgrounds__stripe-container {
+		padding-left: 10.9375rem;
+	}
+	
+	.page-header {
+		justify-content: flex-start;
+		padding-left: calc(40% - 0.25rem);
+		padding-right: 0.6875rem;
+		z-index: 10;
+		font-size: 0.8125rem;
+		line-height: 1.3846;
+	}
+	
+	.main-nav {
+		background: #ffffff;
+	}
+	
+	.sidebar {
+		display: block;
+		flex: 0 0 10.9375rem;
+		max-width: 10.9375rem;
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+		position: relative;
+		z-index: 10;
+	}
+	
+	.sidebar button {
+		width: 100%;
+		padding: 0.625rem;
+		border: 0;
+		position: static;
+		top: auto;
+		left: auto;
+		margin-top: 0.9375rem;
+		margin-right: 0;
+	}
+	
+	.wiki-disclaimer {
+		margin-top: 0.9375rem;
+	}
+	
+	.economy-footer {
+		margin-top: 0.9375rem;
+	}
+	
+	.wiki-disclaimer__inner {
+		font-size: 0.6875rem;
+		line-height: 1.2727;
+	}
+	
+	.economy-footer__button {
+		font-size: 0.8125rem;
+		line-height: 1.3846;
+	}
+	
+	.economy-footer__inner {
+		display: block;
+	}
+	
+	.title-module {
+		width: calc(100% - 0.25rem);
+		margin-left: 0.25rem;
+		margin-bottom: 1.5rem;
+	}
+	
+	.page-title--prominence-1 {
+		font-size: 4.8125;
+		line-height: 1;
+	}
+	
+	.scrolling-text-module {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+
+.colspan-2 {
+    width: calc(50% - 0.25rem);
+    margin-left: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+.colspan-4 {
+    width: calc(100% - 0.25rem);
+    margin-left: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+.editor-details {
+    font-size: 0.6875rem;
+    line-height: 1.2727;
+}
+#magic_modules {
+    padding-right: 0.25rem;
+    flex: 0 1 calc(100% - 10.9375rem);
+    max-width: calc(100% - 10.9375rem);
+    margin-left: -0.25rem;
+    z-index: 12;
+}
+.accordion-module {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+.page-title--prominence-4 {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+.jump-links-module {
+    font-size: 1.3125rem;
+    line-height: 1.1905;
+}
+.jump-links-module__title {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+.divider-module {
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+}
+.page-title--prominence-2 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+.announcement-module {
+    font-size: 1.3125rem;
+    line-height: 1.1905;
+}
+.editor-details {
+    font-size: 0.6875rem;
+    line-height: 1.2727;
+}
+.footer {
+    padding-bottom: 6.75rem;
+    justify-content: center;
+}
+.footer {
+    font-size: 0.8125rem;
+    line-height: 1.3846;
+}
+}
+</style>
+<body>
+	
+	<div class="backgrounds">
+		<div class="backgrounds__pattern"></div>
+		<div class="backgrounds__photo"></div>
+		<div class="backgrounds__stripe-container">
+		  <div class="backgrounds__stripe"></div>
+		</div>
+   </div>
+	<div class="container" style="width:100%; max-width: 54.6875rem;">
+		<header class="page-header">
+			<div class="page-header-inner">
+				<span>WASSUP! Celebrity</span>
+				<br>
+				<span>We are a platform for funny & people to share & make people laugh</span>
+				<br>
+				<span>Forget about anything, just laugh</span>
+			</div>
+		</header>
+		<div class="sidebar-content-container">
+			<section id="sidebar" class="sidebar" aria-label="sidebar">
+				<div class="main-nav">
+					<ul>
+						<li>Home</li>
+						<li>Home</li>
+						<li>Home</li>
+						<li>Home</li>
+						<li>Home</li>
+					</ul>
+				</div>
+				<section class="wiki-disclaimer">
+					<div class="wiki-disclaimer__inner">
+						<p>This website exists as an ongoing collaborative experiment in digital publishing and information sharing. Because this website functions as a wiki, all members of the School of Art community—graduate students, faculty, staff, and alums—have the ability to add new content and pages, and to edit most of the site’s existing content.</p>
+
+						<p>Content is the property of its various authors. When you contribute to this site, you agree to abide by Yale University academic and network use policy, and to act as a responsible member of our community.</p>
+					 </div>
+				</section>
+				<section class="economy-footer">
+					<div class="economy-footer__inner">
+					  <div class="economy-footer__economy-links">
+						<div class="economy-footer__button-container">
+							<a href="/login">
+							  <div class="economy-footer__button">Wallet Login</div>
+							</a>        
+						</div>
+					  </div>
+					  <div class="economy-footer__metadata">
+						<p>Page last changed by: <span>Lindsey Mancini</span></p>
+
+						  <p>Background changed by: Daedalus Li
+					  </p></div>
+					</div>
+				</section>
+			</section>
+			<main id="magic_modules">
+				<div class="title-module colspan-4">
+					<h1 class="title-module__title page-title--prominence-1" aria-label="Yale School &shy;of Art
+">
+							<span role="presentation" aria-hidden="true">WASSUP</span>
+							<span role="presentation" aria-hidden="true">!</span>
+							<span role="presentation" aria-hidden="true">Celebs</span></span>
+					</h1>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="red-bar"></div>
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0"> 
+						<iframe width="320" height="240" src="https://www.youtube.com/embed/JJmqCKtJnxM" title="budweiser wassup commercial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<font size="2"><strong>"WASSUP! Celebs (WSPC)"</strong> pays homage to the comedic brilliance of the past by bringing back the OGs and drawing inspiration from the iconic Budweiser advertisement that ignited our passion for laughter.</font>
+					</div>
+				</div>
+				<div class="accordion-module colspan-2" >                  
+					<details>
+					  <summary class="accordion-module__summary" aria-expanded="false">
+						<h4 class="accordion-module__title page-title--prominence-4">Buy It</h4>
+					  </summary>
+						<div class="accordion-module__content">
+							<img src="./assets/test.gif" style="width:100%">
+						</div>
+					</details>
+				</div>
+				<div class="jump-links-module colspan-4">
+					<p class="jump-links-module__title">
+					  <span>On this page</span>
+					</p>
+					<ul class="jump-links-module__links list--blank">
+						<li><a data-turbolinks="false" href="#happening-at-soa">Happening at SoA</a></li>
+						<li><a data-turbolinks="false" href="#community-bulletin-board">Community Bulletin Board</a></li>
+						<li><a data-turbolinks="false" href="#calendars-newsletters">Calendars &amp; Newsletters</a></li>
+					</ul>
+				</div>
+				<div class="divider-module colspan-4">  	                	<div class="divider-module__horizontal-rule"></div>
+				</div>
+				<div class="title-module colspan-4 title-module--prominence-2 colspan-4">                  
+					<h2 class="title-module__title page-title--prominence-2" aria-label="Happening at SoA
+">
+						<span role="presentation" aria-hidden="true">Happening</span>
+						<span role="presentation" aria-hidden="true">at</span>
+						<span role="presentation" aria-hidden="true">SoA</span>
+					</h2>
+				</div>
+				<div class="announcement-module colspan-4">                  
+					<div class="announcement-module__inner">
+						<div id="clickable-meme">
+							<img src="./assets/meme1.jpeg" style="width:40%">
+							<img src="./assets/meme2.jpeg" style="width:40%">
+							<img src="./assets/meme3.jpeg" style="width:40%">
+							<img src="./assets/meme4.jpeg" style="width:40%">
+						</div>
+						<div class="editor-details editor-details--offset-inside-margin">
+							<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						    <details>
+								<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+								  <span>Editor details</span>
+								</summary>
+								<div class="editor-details__content" tabindex="0">
+								  <p>Last edited by: Lindsey Mancini</p>
+								  <p>Edit access: Everybody</p>
+								</div>
+						    </details>
+						</div>
+					</div>
+				</div>
+				<div class="divider-module colspan-4">  	                	<div class="divider-module__horizontal-rule"></div>
+				</div>
+				<div class="title-module colspan-4 title-module--prominence-2 colspan-4">                  
+					<h2 class="title-module__title page-title--prominence-2" aria-label="Happening at SoA
+">
+						<span role="presentation" aria-hidden="true">COMMUNITY</span>
+						<span role="presentation" aria-hidden="true">BULLETIN </span>
+						<span role="presentation" aria-hidden="true">BOARD</span>
+					</h2>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="divider-module colspan-4">  	                	<div class="divider-module__horizontal-rule"></div>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="scrolling-text-module colspan-4" >
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">
+						<p><em>A message from Communications:</em></p>
+						<p>All members of the SoA community are invited to edit the majority of the wiki however they like, but we ask that any non-curricular projects or initiatives that you would like to share be added to <strong>this section of the homepage</strong>. </p>
+						<p>Students are also invited to reach out to Assistant Director of Communications <a href="mailto:lindsey.mancini@yale.edu">Lindsey Mancini</a> if they would like additional support from the School in bringing attention to their work and endeavors.</p>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+					  <span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+					  <details>
+						<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+						  <span>Editor details</span>
+						</summary>
+						<div class="editor-details__content" tabindex="0">
+						  <p>Last edited by: Lindsey Mancini</p>
+						  <p>Edit access: Everybody</p>
+						</div>
+					  </details>
+					</div>
+				</div>
+				<div class="divider-module colspan-4">  	                	<div class="divider-module__horizontal-rule"></div>
+				</div>
+				<div class="title-module colspan-4 title-module--prominence-2 colspan-4">                  
+					<h2 class="title-module__title page-title--prominence-2" aria-label="Happening at SoA
+">
+						<span role="presentation" aria-hidden="true">CALENDARS</span>
+						<span role="presentation" aria-hidden="true">& </span>
+						<span role="presentation" aria-hidden="true">NEWSLETTERS</span>
+					</h2>
+				</div>
+				<div class="scrolling-text-module colspan-4" >
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">
+						<p><em>A message from Communications:</em></p>
+						<p>All members of the SoA community are invited to edit the majority of the wiki however they like, but we ask that any non-curricular projects or initiatives that you would like to share be added to <strong>this section of the homepage</strong>. </p>
+						<p>Students are also invited to reach out to Assistant Director of Communications <a href="mailto:lindsey.mancini@yale.edu">Lindsey Mancini</a> if they would like additional support from the School in bringing attention to their work and endeavors.</p>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+					  <span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+					  <details>
+						<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+						  <span>Editor details</span>
+						</summary>
+						<div class="editor-details__content" tabindex="0">
+						  <p>Last edited by: Lindsey Mancini</p>
+						  <p>Edit access: Everybody</p>
+						</div>
+					  </details>
+					</div>
+				</div>
+				<div class="scrolling-text-module colspan-2">
+					<div class="scrolling-text-module__inner" style="max-height: 240.0em" tabindex="0">  
+						<font size="2">The Yale School of Art is a <strong>graduate school</strong> that confers MFAs in Graphic Design, Painting/Printmaking, Photography, and Sculpture; and offers undergraduate-level art courses to Yale College students. Our website exists as an <strong>ongoing collaborative experiment</strong> in digital publishing and information sharing. It functions as a wiki—all members of the School of Art community have the ability to add new, and edit most existing content.</font>
+					</div>
+					<div class="editor-details editor-details--offset-inside-margin">
+						<span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						<details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Lindsey Mancini</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						</details>
+					</div>
+				</div>
+				<div class="announcement-module colspan-2">                  
+					<div class="announcement-module__inner">
+						<div>
+							<p><strong><a href="http://eepurl.com/c4lFMn">Get news from the Yale School of Art in your inbox: Sign up for our newsletters &gt;&gt;</a></strong></p>
+							<p></p>
+							<p style="font-size:10pt;">We publish two newsletters during the academic year:</p><p></p>
+							<p style="font-size:10pt;"><strong>News From New Haven</strong> — A public monthly newsletter about news and events happening on campus.</p>
+							<p></p>
+							<p style="font-size:10pt;"><strong>Week at SoA</strong> — A weekly community-only email listing SoA events as well as public and university events in New Haven.
+							</p>
+							<p></p>
+						</div>  
+						<div class="editor-details editor-details--offset-inside-margin">
+						  <span class="editor-details__announcement visually-hidden" aria-live="polite"></span>
+						  <details>
+							<summary class="editor-details__thumbnail" aria-expanded="false" role="button">
+							  <span>Editor details</span>
+							</summary>
+							<div class="editor-details__content" tabindex="0">
+							  <p>Last edited by: Kris Mandelbaum</p>
+							  <p>Edit access: Everybody</p>
+							</div>
+						  </details>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<footer class="footer" aria-label="primary footer">
+		  <div class="footer__inner">
+			<p><span>© 2024</span></p>
+			<ul>
+				<li><a href="/about/support-the-school">Support the School</a></li>
+				<li><a href="/about/visiting">Visiting</a></li>
+				<li><a href="https://www.instagram.com/yaleschoolofart/">Instagram</a></li>
+				<li><a href="https://www.facebook.com/YaleSchoolofArt/">Facebook</a> </li>
+				<li><a href="http://yaleart.org/youtube">YouTube</a></li>
+				<li><a href="/about/contact">Contact</a></li>
+				<li><a href="/sitemap">Sitemap</a></li>
+				<li><a href="https://your.yale.edu/policies-procedures/policies/1605-web-accessibility-policy">Accessibility at Yale</a></li>
+				<li>Design is inspired by <a href="https://www.art.yale.edu/">YALE SCHOOL OF ART</a> Webpage</li>
+			</ul>
+		  </div>
+		</footer>
+	</div>
+	<div id="mobile-footer" class="mobile-footer" aria-hidden="true">
+		<section class="wiki-disclaimer" aria-label="Wiki explainer">
+			<div class="wiki-disclaimer__inner">
+				<p>This website exists as an ongoing collaborative experiment in digital publishing and information sharing. Because this website functions as a wiki, all members of the School of Art community—graduate students, faculty, staff, and alums—have the ability to add new content and pages, and to edit most of the site’s existing content.</p>
+				<p>Content is the property of its various authors. When you contribute to this site, you agree to abide by Yale University academic and network use policy, and to act as a responsible member of our community.</p>
+
+			</div>
+		</section>
+        <section class="economy-footer" aria-label="content management footer">
+			<div class="economy-footer__inner">
+				<div class="economy-footer__economy-links">
+					<div class="economy-footer__button-container">
+						<a href="/login">
+							<div class="economy-footer__button">Wallet Login</div>
+						</a>
+					</div>
+				</div>
+				<div class="economy-footer__metadata">
+					<p>Page last changed by: <span>Lindsey Mancini</span></p>
+					<p>Background changed by: Daedalus Li</p>
+				</div>
+			</div>
+		</section>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+    $('#clickable-meme img').click(function() {
+		var randomNumber = Math.floor(Math.random() * 7) + 1;
+        $(this).attr('src', './assets/meme' + randomNumber + ".jpeg");
+    });
+});
+</script>
+</html>
