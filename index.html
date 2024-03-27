@@ -23,13 +23,19 @@
   <title>Celebrity What's Up!</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&family=Zeyada&display=swap" rel="stylesheet">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
+    * {
+		font-family: "Sedgwick Ave", cursive;
+	}
     /* Some basic styles for demonstration */
     .moving-banner {
         width: 100%;
@@ -129,8 +135,16 @@
 		color:#000;
 	}
 	.meme-frame {
-		 list-style-type: none;
-		 padding: 0px 20px;
+		list-style-type: none;
+		margin: 20px 0px;
+		padding: 0px 20px;
+		border: 4px dashed #ccc;
+		border-top: 0px;
+		border-bottom: 0px;
+	}
+	.clickable-meme {
+		padding: 10px 0px;
+		cursor: crosshair;
 	}
 	.clickable-meme img {
 		max-width: 100%;
@@ -173,6 +187,9 @@
 		margin: 0 10px;
 		font-size: 20px;
 	}
+	h2 {
+		overflow-wrap: break-word;
+	}
 </style>
 <body style="overflow-x: hidden;">
 	<h1 style="display: none;">Celebrity What's Up!</h1>
@@ -180,32 +197,32 @@
 	<div class="moving-banner">
 		<div id="moving-banner-text-container-1">
 			<p id="moving-banner-text-1">
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 			<!-- Duplicate the text to create a loop -->
 			<p id="moving-banner-text-2">
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 		</div>
 		<div id="moving-banner-text-container-2">
 			<p id="moving-banner-text-3">
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 			<!-- Duplicate the text to create a loop -->
 			<p id="moving-banner-text-4">
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
-				<span>WELCOME TO THE Celebrity What's Up!<span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 		</div>
 	</div>
@@ -214,8 +231,8 @@
 
 	</div>
 	<div  class="block row bg-black">
-		<div class="col-sm-12 col-md-12 col-lg-12"">
-			<h2>Wassup, up, p !!!</h2>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<h2>OG Wassssssssssup  <span class="emoji">🫡</span></h2>
 		</div>
 		<div class="col-sm-12 col-md-3 col-lg-3" style="padding:20px;">
 			<div class="video-container">
@@ -242,7 +259,7 @@
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<h2>Meme, Waaaaaaaaaaaaaaaaaaaaaassup!</h2>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme1.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme2.jpeg" alt="meme"/></li>
@@ -252,7 +269,7 @@
 				<li class="clickable-meme"><img src="./assets/meme6.jpeg" alt="meme"/></li>
 			</ul>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2 desktop-only" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme1.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme2.jpeg" alt="meme"/></li>
@@ -262,7 +279,7 @@
 				<li class="clickable-meme"><img src="./assets/meme6.jpeg" alt="meme"/></li>
 			</ul>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2 desktop-only" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme2.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme3.jpeg" alt="meme"/></li>
@@ -272,7 +289,7 @@
 				<li class="clickable-meme"><img src="./assets/meme7.jpeg" alt="meme"/></li>
 			</ul>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2 desktop-only" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme3.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme4.jpeg" alt="meme"/></li>
@@ -282,7 +299,7 @@
 				<li class="clickable-meme"><img src="./assets/meme1.jpeg" alt="meme"/></li>
 			</ul>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2 desktop-only" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme4.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme5.jpeg" alt="meme"/></li>
@@ -292,7 +309,7 @@
 				<li class="clickable-meme"><img src="./assets/meme2.jpeg" alt="meme"/></li>
 			</ul>
 		</div>
-		<div class="col-sm-2 col-md-2 col-lg-2">
+		<div class="col-sm-12 col-md-2 col-lg-2 desktop-only" style="background: #4a1a1a; border: 2px solid #000;">
 			<ul class="meme-frame">
 				<li class="clickable-meme"><img src="./assets/meme5.jpeg" alt="meme"/></li>
 				<li class="clickable-meme"><img src="./assets/meme6.jpeg" alt="meme"/></li>
@@ -304,33 +321,27 @@
 		</div>
 	</div>
 	<div class="block row bg-black">
-		<div class="col-sm-12 col-md-4 col-lg-4 desktop-only"></div>
-		<div class="col-sm-12 col-md-8 col-lg-8 desktop-only">
-			<h2>Wassup Broooo</h2>
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12 mobile-only">
-			<h2>Wassup Broooo</h2>
-		</div>
 		<div class="col-sm-12 col-md-4 col-lg-4">
+			<h2 class="mobile-only">Wassup Broooo</h2>
 			<div class="image-container">
 				<img src="./assets/wassup-scream.png" alt="meme"/>
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-8 col-lg-8">
+			<h2 class="desktop-only">Wassup Broooo</h2>
 			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.<br/><br/>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?<p/>
 			<p>Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
 		</div>
 	</div>
 	<div class="block row bg-black">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<h2 class="">Wassup Snoopdog!!!</h2>
-		</div>
 		<div class="col-sm-12 col-md-4 col-lg-4 mobile-only">
+			<h2 class="mobile-only">Wassup Broooo</h2>
 			<div class="image-container">
 				<img src="./assets/Snoopdog.png" alt="meme"/>
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-8 col-lg-8">
+			<h2 class="desktop-only">Wassup Broooo</h2>
 			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.<br/><br/>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?<p/>
 			<p>Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
 			<div class="video-container">
@@ -344,19 +355,14 @@
 		</div>
 	</div>
 	<div class="block row bg-black">
-		<div class="col-sm-12 col-md-4 col-lg-4 desktop-only"></div>
-		<div class="col-sm-12 col-md-8 col-lg-8 desktop-only">
-			<h2>Wassup Aiiiiiiiiiiiii</h2>
-		</div>
-		<div class="col-sm-12 col-md-12 col-lg-12 mobile-only">
-			<h2>Wassup Aiiiiiiiiiiiii</h2>
-		</div>
 		<div class="col-sm-12 col-md-4 col-lg-4">
+			<h2 class="mobile-only">Wassup Memes</h2>
 			<div class="image-container">
 				<img src="./assets/wass-up-ai.png" alt="meme"/>
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-8 col-lg-8">
+			<h2 class="desktop-only">Wassup Aiiiiiiiiiiiii</h2>
 			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.<br/><br/>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?<p/>
 			<div class="big-button">
 				<button style="#fff; color:#000">Connect Wallet</button>
@@ -402,9 +408,10 @@
         <div class="social-icons">
             <!-- Replace "#" with your social media profile URLs -->
             <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/wassup_celebs"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
+			<a href="#"><i class="fab fa-telegram"></i></a>
         </div>
     </footer>
 </body>
