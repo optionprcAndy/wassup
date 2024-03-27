@@ -33,6 +33,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
+	h2 {
+		font-size: 50px;
+		margin: 0px;
+		margin-bottom: 22px;
+	}
+	p {
+		font-size: 18px;
+		line-height: 145%;
+	}
     /* Some basic styles for demonstration */
     .moving-banner {
         width: 100%;
@@ -144,7 +153,7 @@
 		cursor: crosshair;
 	}
 	.clickable-meme img {
-		max-width: 100%;
+		width: 100%;
 	}
 	.block {
 		padding: 40px 80px;
@@ -154,7 +163,7 @@
 		height: auto;
 	}
 	/* Styles for Mobile Devices Only */
-	@media only screen and (max-width: 768px) {
+	@media only screen and (max-width: 991px) {
 		/* Add your mobile-specific styles here */
 		.desktop-only {
 			display: none; /* Hide elements with this class on mobile */
@@ -162,7 +171,7 @@
 	}
 
 	/* Styles for Desktop Devices Only */
-	@media only screen and (min-width: 769px) {
+	@media only screen and (min-width: 992px) {
 		/* Add your desktop-specific styles here */
 		.mobile-only {
 			display: none; /* Hide elements with this class on desktop */
@@ -187,6 +196,47 @@
 	h2 {
 		overflow-wrap: break-word;
 	}
+	.big-button {
+		display: flex;
+	  align-content: center;
+	  text-align: center;
+	  justify-content: center;
+	}
+	.button-border {
+	  padding: 4px;
+	  border: 1px solid transparent;
+	  border-radius: 3px;
+	  background: #fff;
+	}
+	.button-border:hover {
+		background: linear-gradient(90.01deg,#ffdbdb -.45%,#ff8b8b 20.03%,#c5fbff 51.25%,#ffe0b3 79.78%,#80abff 99.99%);
+	    background-clip: border-box;
+	}
+	.button-bg:hover {
+		background: #000;
+	}
+	.big-button button {
+	  color: #fff;
+	  padding: 18px 30px;
+	  font-size: 26px;
+	  background: #000;
+	  border: 0px;
+	}
+	.big-button button:hover {
+	  background: linear-gradient(90.01deg,#ffdbdb -.45%,#ff8b8b 20.03%,#c5fbff 51.25%,#ffe0b3 79.78%,#80abff 99.99%);
+	  background-clip: border-box;
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	  text-fill-color: transparent;
+	}
+	.banner {
+		    background: #000;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 520px;
+	}
 </style>
 <body style="overflow-x: hidden;">
 	<h1 style="display: none;">Celebrity What's Up!</h1>
@@ -194,53 +244,37 @@
 	<div class="moving-banner">
 		<div id="moving-banner-text-container-1">
 			<p id="moving-banner-text-1">
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 			<!-- Duplicate the text to create a loop -->
 			<p id="moving-banner-text-2">
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 		</div>
 		<div id="moving-banner-text-container-2">
 			<p id="moving-banner-text-3">
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 			<!-- Duplicate the text to create a loop -->
 			<p id="moving-banner-text-4">
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
-				<span>WELCOME TO WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
+				<span>WASSUP! CELEBRITY <span class="emoji">🤪</span></span>
 			</p>
 		</div>
 	</div>
-	<div class="banner" style="background: #ccc; position:relative;">
-		<img src="./assets/logo-w.png" alt="logo" style="width: 100%; "/>
-	</div>
-	<div class="block row bg-black">
-		<div class="col-sm-12 col-md-4 col-lg-4">
-			<h2 class="mobile-only">Wassup Broooo</h2>
-			<div class="image-container">
-				<img src="./assets/wassup-scream.png" alt="meme"/>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-8 col-lg-8">
-			<h2 class="desktop-only">Wassup Broooo</h2>
-			<p>Wasssssssssup!!!</p>
-			<p>Our project name, Wassup! Celebs, is inspired by the iconic Budweiser commercial back in 2000. We’re a community of crypto natives who strongly believe that laughter is the best medicine - and we believe involving celebrities in would be great fun!</p>
-			<p>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it? This time our “lucky” victims are celebs, that’s all.</p>
-			<p>After all, our idea is simple – laugh, connect and get rich together! In BTC we trust!</p>
-			<p>Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
-		</div>
+	<div class="banner">
+		<img src="./assets/logo-w.png" alt="logo" style="width: 100%;"/>
 	</div>
 	<div  class="block row bg-black">
 		<div class="col-sm-12 col-md-12 col-lg-12">
@@ -334,15 +368,16 @@
 	</div>
 	<div class="block row bg-black">
 		<div class="col-sm-12 col-md-4 col-lg-4 mobile-only">
-			<h2 class="mobile-only">Wassup Broooo</h2>
+			<h2 class="mobile-only">Wassup Snoop God!!</h2>
 			<div class="image-container">
 				<img src="./assets/Snoopdog.png" alt="meme"/>
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-8 col-lg-8">
-			<h2 class="desktop-only">Wassup Broooo</h2>
-			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.<br/><br/>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?</p>
-			<p>Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
+			<h2 class="desktop-only">Wassup Snoop God!!</h2>
+			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.</p>
+			<p>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?</p>
+			<p style="padding-bottom: 22px;">Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
 			<div class="video-container">
 				<iframe src="https://www.youtube.com/embed/mUBXUyRoQco?si=8uRmUJ_iyA08E1IJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</div>
@@ -354,17 +389,18 @@
 		</div>
 	</div>
 	<div class="block row bg-black">
-		<div class="col-sm-12 col-md-4 col-lg-4">
-			<h2 class="mobile-only">Wassup Memes</h2>
-			<div class="image-container">
-				<img src="./assets/wass-up-ai.png" alt="meme"/>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-8 col-lg-8">
-			<h2 class="desktop-only">Wassup Aiiiiiiiiiiiii</h2>
-			<p>Laughter is the best medicine. We’re just here to improve everyone’s health.<br/><br/>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it?<p/>
+		<div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+			<h2>Wassup Broooo!!!</h2>
+			<p>Our project name, Wassup! Celebs, is inspired by the iconic Budweiser commercial back in 2000. We’re a community of crypto natives who strongly believe that laughter is the best medicine - and we believe involving celebrities in would be great fun!</p>
+			<p>According to a research done by researchers at Harvard’s Faculty of Trollogy, 69.69% of jokes are offensive. Think about the last time you laughed, it was at the expense of somebody else, wasn’t it? This time our “lucky” victims are celebs, that’s all.</p>
+			<p>After all, our idea is simple – laugh, connect and get rich together! In BTC we trust!</p>
+			<p style="padding-bottom: 22px;">Disclaimer: If you’re offended by any of our jokes, or if you have concerns with any academic misquotes above, please do not hesitate to contact our Honorary President Prof Amber Turd at <a href="mailto:a.turd@gofkyourself.com">a.turd@gofkyourself.com</a></p>
 			<div class="big-button">
-				<button style="#fff; color:#000">Connect Wallet</button>
+				<div class="button-border">
+					<div class="button-bg">
+						<button>Connect Wallet</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
